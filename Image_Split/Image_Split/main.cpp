@@ -70,24 +70,9 @@ int main() {
 				}
 			}
 		}
-		/*
-		for (int i = 0; i < 512; i++) {
-			for (int m = 0; m < 512; m++) {
-				if (m + image.hight * (j / t_row) + image.hight < 512 && i + image.width * (j % t_col) + image.width < 512) {
-					if (image.tip_x<i && image.tip_x + image.width>i && image.tip_y < m && image.tip_y + image.hight > m) {
-						tempimage.at<Vec3b>(m + image.hight * (j / t_row), i + image.width * (j % t_col))[0] = resizeimage.at<Vec3b>(m + image.tip_x + (image.hight * (j / t_row)), i + image.tip_y + (image.width * (j % t_col)))[0];
-						tempimage.at<Vec3b>(m + image.hight * (j / t_row), i + image.width * (j % t_col))[1] = resizeimage.at<Vec3b>(m + image.tip_x + (image.hight * (j / t_row)), i + image.tip_y + (image.width * (j % t_col)))[1];
-						tempimage.at<Vec3b>(m + image.hight * (j / t_row), i + image.width * (j % t_col))[2] = resizeimage.at<Vec3b>(m + image.tip_x + (image.hight * (j / t_row)), i + image.tip_y + (image.width * (j % t_col)))[2];
-					}
-				}
-				
-			}
-			
-		}
-		*/
 		
-		imshow("", tempimage);
-		waitKey(0);
+		//imshow("", tempimage);
+		//waitKey(0);
 
 		//MLA‚Ì‚æ‚¤‚È16“™•ª‚·‚éƒvƒƒOƒ‰ƒ€
 		int sepa = 4;
@@ -109,7 +94,26 @@ int main() {
 				}
 			}
 			//imshow("", writeimages);
-			imwrite(filename + to_string(j) +"_"+ to_string(i) + ".bmp", writeimages);
+
+			//‰æ‘œ”Ô†‚Ì‘µ‚¦
+			int num=0;
+			switch (j)
+			{
+			case 0:num = 0; break;
+			case 1:num = 1; break;
+			case 2:num = 4; break;
+			case 3:num = 5; break;
+			case 4:num = 2; break;
+			case 5:num = 3; break;
+			case 6:num = 6; break;
+			case 7:num = 7; break;
+			case 8:num = 10; break;
+			case 9:num = 11; break;
+			case 10:num = 8; break;
+			case 11:num = 9; break;
+			default:break;
+			}
+			imwrite(filename + to_string(num) +"_"+ to_string(i) + ".bmp", writeimages);
 			waitKey(0);
 		}
 	}
